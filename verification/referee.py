@@ -33,13 +33,18 @@ from checkio.referees import cover_codes
 
 from tests import TESTS
 
+cover_py = '''
+def cover(func, args):
+    return func(set(args[0]), args[1])
+'''
+
 api.add_listener(
     ON_CONNECT,
     CheckiOReferee(
         tests=TESTS,
         function_name={
-            "python": "sum_two",
-            "js": "sumTwo"
+            "python": "nearest_value",
+            "js": "nearestValue"
         },
         cover_code={
             'python-3': cover_codes.unwrap_args,
