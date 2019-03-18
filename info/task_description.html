@@ -1,30 +1,31 @@
 <!-- Describe task in general -->
 
 <p>
-    Найдите ближайшее значение к переданному. 
+    Find the nearest value to the given one.
 </p>
 
 <p>
-    Вам даны список значений в виде {% if interpreter.slug == "js-node" %}Массива{% else %}множества (Set){% endif %} и значение, относительно которого, надо найти ближайшее.
+    You are given a list of values in the {% if interpreter.slug == "js-node" %}Array{% else %}set{% endif %} form and a value for which you need to find the nearest one.
 </p>
 
 <p>
-    Например мы иммет следующий ряд чисел: 4, 7, 10, 11, 12, 17. И нам нужно найти ближайшее значение к цифре 9. Если отсортировать этот ряд по возрастанию, то слева от 9 будет 7, а справа 10. Но 10 - находится ближе, чем 7, значит правильный ответ 10.
+    For example, we have the following set of numbers: 4, 7, 10, 11, 12, 17, and we need to find the nearest value to the number 9. If we sort this set in the ascending order, then to the left of number 9 will be number 7 and to the right - will be number 10. But 10 is closer than 7, which means that the correct answer is 10.
 </p>
 
-<p>Несколько уточнений</p>
+<p>A few clarifications:</p>
 <ul>
-    <li>Если 2 числа находятся на одинаковом расстоянии - необходимо выбрать наименьшее их них</li>
-    <li>Ряд чисел всегда не пустой, т.е. размер >= 1</li>
-    <li>Переданное значение может быть в этом ряде, а значит оно и является ответом</li>
-    <li>В ряде могут быть как положительные, так и отрицательные числа, но они всегда целые</li>
-    <li>Ряд не отсортирован и состот из уникальных чисел</li>
+    <li>If 2 numbers are at the same distance, you need to choose the smallest one;</li>
+    <li>The set of numbers is always non-empty, i.e. the size is >=1;</li>
+    <li>The given value can be in this set, which means that it’s the answer;</li>
+    <li>The set can contain both positive and negative numbers, but they are always integers;</li>
+    <li>The set isn’t sorted and consists of unique numbers.</li>
 </ul>
+
 
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Два аргумента. Ряд значений в виде {% if interpreter.slug == "js-node" %}Array{% else %}set{% endif %}. Искомое значение - int
+    <strong>Input: </strong> Two arguments. A list of values in the {% if interpreter.slug == "js-node" %}Array{% else %}set{% endif %} form. The sought value is an int.
 </p>
 
 <p>
@@ -48,4 +49,3 @@ nearest_value([4, 7, 10, 11, 12, 17], 8) == 7
 </pre>
 {% endif %}
 </div>
-
