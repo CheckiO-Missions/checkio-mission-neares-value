@@ -1,4 +1,4 @@
-def nearest_value(a, b):
+def nearest_value(values: set, one: int) -> int:
     # your code here
     return None
 

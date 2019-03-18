@@ -1,6 +1,6 @@
 "use strict";
 
-function nearestValue(a, b) {
+function nearestValue(values, one) {
 
     // your code here
     return undefined;
