@@ -47,7 +47,7 @@ api.add_listener(
             "js": "nearestValue"
         },
         cover_code={
-            'python-3': cover_codes.unwrap_args,
+            'python-3': cover_py,
             'js-node': cover_codes.js_unwrap_args
         }
     ).on_ready)
