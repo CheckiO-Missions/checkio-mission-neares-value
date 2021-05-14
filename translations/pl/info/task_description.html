@@ -1,0 +1,54 @@
+<!-- Describe task in general -->
+
+<p>
+    Znajdź wartość najbliższą do podanej liczby.
+</p>
+
+<p>
+    Dana jest lista wartości w formie {% if interpreter.slug == "js-node" %}tablicy (Array){% else %}zbioru (set){% endif %} oraz liczba, dla której należy znaleźć najbliższą wartość.
+</p>
+
+<p>
+    Weźmy przykładowy zbiór liczb: 4, 7, 10, 11, 12, 17, oraz liczbę 9, dla której należy znaleźć najbliższą wartość. Jeśli posortujemy zbiór rosnąco, wtedy po lewej stronie liczby 9 będzie 7, a po prawej - 10. Natomiast 10 jest bliżej niż 7 i dlatego poprawną odpowiedzią jest liczba 10.
+</p>
+
+<p>Dla doprecyzowania:</p>
+<ul>
+    <li>Jeżeli dwie liczby są w takiej samej odległości, należy wybrać mniejszą z nich;</li>
+    <li>Zbiór liczb jest zawsze niepusty, tzn. jego wielkość >=1;</li>
+    <li>Zbiór może zawierać zadaną liczbę, co oznacza, że jest ona zarazem rozwiązaniem;</li>
+    <li>Zbiór może zawierać liczby dodatnie i ujemne, lecz zawsze są to liczby całkowite;</li>
+    <li>Zbiór nie jest posortowany, a liczby się nie powtarzają.</li>
+</ul>
+
+
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Wejście: </strong> Dwa argumenty. {% if interpreter.slug == "js-node" %}Array{% else %}Set{% endif %} zawierający liczby oraz wartość szukana typu int.
+</p>
+
+<p>
+    <strong>Wyjście: </strong> Int. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Przykład:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">nearestValue([4, 7, 10, 11, 12, 17], 9) == 10
+nearestValue([4, 7, 10, 11, 12, 17], 8) == 7
+nearestValue([4, 8, 10, 11, 12, 17], 9) == 8
+nearestValue([4, 9, 10, 11, 12, 17], 9) == 9
+nearestValue([4, 7, 10, 11, 12, 17], 0) == 4
+</pre>
+{% else %}
+<pre class="brush: python">nearest_value({4, 7, 10, 11, 12, 17}, 9) == 10
+nearest_value({4, 7, 10, 11, 12, 17}, 8) == 7
+</pre>
+{% endif %}
+</div>
