@@ -41,6 +41,14 @@ TESTS = {
         {
             "input": [[-1, 2, 3], 0],
             "answer": -1
+        },
+        {
+            "input": [[5], 5],
+            "answer": 5
+        },
+        {
+            "input": [[5], 7],
+            "answer": 5
         }
     ],
     "Extra": [
