@@ -31,17 +31,17 @@
         <pre class="brush: python">
 def nearest_value(values: set, one: int) -> int:
 
-    D, N  = None, None # declare the initial distance and closest number
+    min_dist, closest_num  = None, None # declare the initial distance and closest number
     # use for loop to iterate over the values:
         dist = # use abs() to calculate distance between current
                # value from the set and the input one
-        if D == None or D > dist: # check if initial distance does
+        if min_dist == None or min_dist > dist: # check if initial distance does
                                   # not exist or is bigger then calculated
-            # update stored D and N with new values
-        elif D == dist: # if distance is the same as stored
-            N = ... # use min() to store the smaller number
+            # update stored min_dist and closest_num with new values
+        elif min_dist == dist: # if distance is the same as stored
+            closest_num = ... # use min() to store the smaller number
 
-    return N
+    return closest_num
         </pre>    
         </div>
     </div>
@@ -53,15 +53,15 @@ def nearest_value(values: set, one: int) -> int:
             <pre class="brush: python">
 def nearest_value(values: set, one: int) -> int:
     
-    D, N  = None, None
+    min_dist, closest_num  = None, None
     for value in values:
         dist = abs(one - value)
-        if D == None or D > dist:
-            D, N = dist, value
-        elif D == dist:
-            N = min(value, N)
+        if min_dist == None or min_dist > dist:
+            min_dist, closest_num = dist, value
+        elif min_dist == dist:
+            closest_num = min(value, closest_num)
             
-    return N
+    return closest_num
             </pre>
         </div>
     </div>
