@@ -1,58 +1,57 @@
 <body data-author="freeman_lex">
-    <div class="question-answer">
-        <div class="question">
-            I have no idea how to start solving this mission!
-        </div>
-        <div class="answer">
-            <p>Well, the idea I offer you for the clear and gradual solving this mission is the following.
-            First of all, you have to declare variables for distance and your future closest number.
-            Then, by checking each number in the set, you should calculate the distance between the number and the input number.
-            In case this distance is less then stored in variable, update variables with new distance and closest number.
-            In case the distance is the same, check if the number is less than the stored one. If so - update the stored number.
-            Return the stored number after checking all the set in such way.
-            </p>
-        </div>
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission!
     </div>
-    <div class="question-answer">
-        <div class="question">
-            It looks clear, but my code still does not work. Which functions should I use to implement the idea into code?
-        </div>
-        <div class="answer">
-            <p>For successfully solving the mission in my way you just need to find distance with <a target="_blank" href="https://docs.python.org/3/library/functions.html#abs">abs()</a>, to choose the smaller number with <a target="_blank" href="https://docs.python.org/3/library/functions.html#min">min()</a>
-                and to move over the set use<a target="_blank" href="https://docs.python.org/3/reference/compound_stmts.html#for">for</a> loop.</p>
-        </div>
+    <div class="answer">
+        Well, the idea I offer you for the clear and gradual solving this mission is the following.
+        First of all, you have to declare variables for distance and your future closest number.
+        Then, by checking each number in the set, you should calculate the distance between the number and the input number.
+        In case this distance is less then stored in variable, update variables with new distance and closest number.
+        In case the distance is the same, check if the number is less than the stored one. If so - update the stored number.
+        Return the stored number after checking all the set in such way.
     </div>
-    <div class="question-answer">
-        <div class="question">
-            Can you please point me out at some exact code blocks?
-        </div>
-        <div class="answer">
-        <p>Let's look at more precise code description:</p>
-        <pre class="brush: python">
-def nearest_value(values: set, one: int) -> int:
+</div>
+<div class="question-answer">
+    <div class="question">
+        It looks clear, but my code still does not work. Which functions should I use to implement the idea into code?
+    </div>
+    <div class="answer">
+        For successfully solving the mission in my way you just need to find distance with <a target="_blank" href="https://docs.python.org/3/library/functions.html#abs">abs()</a>, to choose the smaller number with <a target="_blank" href="https://docs.python.org/3/library/functions.html#min">min()</a>
+            and to move over the set use<a target="_blank" href="https://docs.python.org/3/reference/compound_stmts.html#for">for</a> loop.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Can you please point me out at some exact code blocks?
+    </div>
+    <div class="answer">
+    Let's look at more precise code description:
+    <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
 
     min_dist, closest_num  = None, None # declare the initial distance and closest number
     # use for loop to iterate over the values:
         dist = # use abs() to calculate distance between current
-               # value from the set and the input one
+                # value from the set and the input one
         if min_dist == None or min_dist > dist: # check if initial distance does
-                                  # not exist or is bigger then calculated
+                                    # not exist or is bigger then calculated
             # update stored min_dist and closest_num with new values
         elif min_dist == dist: # if distance is the same as stored
             closest_num = ... # use min() to store the smaller number
 
     return closest_num
-        </pre>    
-        </div>
+    </pre>    
     </div>
-    <div class="question-answer">
-        <div class="question">
-            One last question. How my final solution will look like?
-        </div>
-        <div class="answer">
-            <pre class="brush: python">
-def nearest_value(values: set, one: int) -> int:
-    
+</div>
+<div class="question-answer">
+    <div class="question">
+        One last question. How my final solution will look like?
+    </div>
+    <div class="answer">
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
     min_dist, closest_num  = None, None
     for value in values:
         dist = abs(one - value)
@@ -60,19 +59,52 @@ def nearest_value(values: set, one: int) -> int:
             min_dist, closest_num = dist, value
         elif min_dist == dist:
             closest_num = min(value, closest_num)
-            
+        
     return closest_num
-            </pre>
-        </div>
+        </pre>
     </div>
-    <div class="question-answer">
-        <div class="question">
-            Thanks! Everything works fine!
-        </div>
-        <div class="answer">
-            <p>Glad ho hear it!</p>
-        </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real Python Ninnjaa!
     </div>
+    <div class="answer">
+        Sure, grab it!<br />
+        Much shorter solution, where you find minimum value in set by two parameters:
+        first is distance (absolute difference) from the input number, second: smaller value
+        between two on the same distance 
+        <br />
+        <br />
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
 
+    return min(values, key=lambda n: (abs(one - n), n))        
+        </pre>
+        In this solution you start from "one" and increasing and decreasing it
+        check if this new value is in set.
+        <br />
+        <br />
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
 
+    n = 0
+    while True:
+        if (one - n) in values:
+            return one - n
+        if (one + n) in values:
+            return one + n
+        n += 1
+        </pre>
+        Click "Best solutions" an mission menu and see more interesting solutions!
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad ho hear it!
+    </div>
+</div>
 </body>
