@@ -28,19 +28,19 @@
     <div class="answer">
         <p>Let's look at more precise code description:</p>
         <pre class="brush: python">
-    def nearest_value(values: set[int], one: int) -> int:
+def nearest_value(values: set[int], one: int) -> int:
 
-        min_dist, closest_num  = None, None # declare the initial distance and closest number
-        # use for loop to iterate over the values:
-            dist = # use abs() to calculate distance between current
-                    # value from the set and the input one
-            if min_dist == None or min_dist > dist: # check if initial distance does
-                                        # not exist or is bigger then calculated
-                # update stored min_dist and closest_num with new values
-            elif min_dist == dist: # if distance is the same as stored
-                closest_num = ... # use min() to store the smaller number
+    min_dist, closest_num  = None, None # declare the initial distance and closest number
+    # use for loop to iterate over the values:
+        dist = # use abs() to calculate distance between current
+               # value from the set and the input one
+        if min_dist == None or min_dist > dist: # check if initial distance does
+                                    # not exist or is bigger then calculated
+            # update stored min_dist and closest_num with new values
+        elif min_dist == dist: # if distance is the same as stored
+            closest_num = ... # use min() to store the smaller number
 
-        return closest_num
+    return closest_num
         </pre>    
     </div>
 </div>
