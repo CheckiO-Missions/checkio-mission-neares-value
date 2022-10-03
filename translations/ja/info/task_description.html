@@ -5,7 +5,7 @@
 </p>
 
 <p>
-    数値の一覧が {% if interpreter.slug == "js-node" %}配列{% else %}集合{% endif %}として与えられます。その中から別に指示された数値と最も近い値を返してください。
+    数値の一覧が 集合として与えられます。その中から別に指示された数値と最も近い値を返してください。
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>入力: </strong> 2引数. {% if interpreter.slug == "js-node" %}配列{% else %}集合{% endif %}形式の数値の一覧. 指示された数値. 双方int
+    <strong>入力: </strong> 2引数. {% if is_js %}配列{% else %}集合{% endif %}形式の数値の一覧. 指示された数値. 双方int
 </p>
 
 <p>
@@ -39,16 +39,5 @@
         <strong>例:</strong>
     </p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">nearestValue([4, 7, 10, 11, 12, 17], 9) == 10
-nearestValue([4, 7, 10, 11, 12, 17], 8) == 7
-nearestValue([4, 8, 10, 11, 12, 17], 9) == 8
-nearestValue([4, 9, 10, 11, 12, 17], 9) == 9
-nearestValue([4, 7, 10, 11, 12, 17], 0) == 4
-</pre>
-{% else %}
-<pre class="brush: python">nearest_value({4, 7, 10, 11, 12, 17}, 9) == 10
-nearest_value({4, 7, 10, 11, 12, 17}, 8) == 7
-</pre>
-{% endif %}
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>

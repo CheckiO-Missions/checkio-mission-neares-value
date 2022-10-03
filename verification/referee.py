@@ -28,15 +28,9 @@ checkio.referee.cover_codes
 
 from checkio.signals import ON_CONNECT
 from checkio import api
-from checkio.referees.io import CheckiOReferee
-from checkio.referees import cover_codes
+from checkio.referees.io_template import CheckiOReferee
 
 from tests import TESTS
-
-cover_py = '''
-def cover(func, args):
-    return func(set(args[0]), args[1])
-'''
 
 api.add_listener(
     ON_CONNECT,
@@ -47,7 +41,9 @@ api.add_listener(
             "js": "nearestValue"
         },
         cover_code={
-            'python-3': cover_py,
-            'js-node': cover_codes.js_unwrap_args
+            'python-3': {},
+            'js-node': {
+                # "dateForZeros": True,
+            }
         }
     ).on_ready)
