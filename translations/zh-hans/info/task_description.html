@@ -1,0 +1,42 @@
+<!-- Describe task in general -->
+
+<p>
+    找出与给定值最接近的数值。
+</p>
+<p>
+    给你一个{% if is_js %}一组数{% else %}一组整数{% endif %}
+    和一个数值，您需要找出最接近的数值。
+</p>
+<p>
+    例如，我们有以下一串数字：4, 7, 10, 11, 12, 17,
+    我们需要找出与数字 9 最接近的数值。如果我们将这个序列
+    则数字 9 的左边是数字 7，右边是数字 10。
+    则是数字 10。但是 10 比 7 更接近，这意味着正确答案是 10。
+</p>
+
+<p>有几点需要说明：</p>
+<ul>
+    <li>如果两个数字的距离相同，则需要选择最小的那个；</li>
+    <li>数字序列总是非空的；</li>
+    <li>给定的数值可以出现在这个序列中，这意味着它就是答案；</li>
+    <li>数列可能包含正数和负数，但它们总是整数；</li>
+    <li>序列没有排序，只包含唯一的数字。</li>
+</ul>
+<!-- Explain input and output values -->
+<p>
+   <strong>输入</strong>两个参数。{% if is_js %}一组数字{% else %}一组整数{% endif %} 。所求值为{% if is_js %}一个数字{% else %}一个整数{% endif %} 。
+</p>
+
+<p>
+   <strong>输出：</strong> {% if is_js %}一个数{% else %}一个整数{% endif %} 。 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>例子</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
