@@ -1,0 +1,42 @@
+<!-- Describe task in general -->
+
+<p>
+    Trouvez la valeur la plus proche de la valeur donnée.
+</p>
+<p>
+    On vous donne un {% if is_js %}Ensemble de nombres{% else %}ensemble d'entiers{% endif %}
+    et une valeur dont vous devez trouver la plus proche.
+</p>
+<p>
+    Par exemple, nous avons la séquence de nombres suivante: 4, 7, 10, 11, 12, 17,
+    et nous devons trouver la valeur la plus proche du nombre 9. Si nous trions cette séquence
+    dans l'ordre croissant, le nombre 7 se trouvera à gauche du nombre 9 et le nombre 10 à droite
+    à droite - sera le nombre 10. Or, 10 est plus proche que 7, ce qui signifie que la bonne réponse est 10.
+</p>
+
+<p>Quelques précisions:</p>
+<ul>
+    <li>Si deux nombres sont à la même distance, vous devez choisir le plus petit;</li>
+    <li>La suite de nombres est toujours non vide;</li>
+    <li>La valeur donnée peut se trouver dans cette suite, ce qui signifie qu'il s'agit de la réponse;</li>
+    <li>La suite peut contenir des nombres positifs et négatifs, mais il s'agit toujours de nombres entiers;</li>
+    <li>La séquence n'est pas triée et ne comporte que des nombres uniques.</li>
+</ul>
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Deux arguments. {% if is_js %}Un ensemble de nombres{% else %}Un ensemble d'entiers{% endif %}. La valeur recherchée est {% if is_js %}un nombre{% else %}un entier{% endif %}.
+</p>
+
+<p>
+   <strong>Résultat:</strong> {% if is_js %}Un nombre{% else %}Un entier{% endif %}. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Exemples:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
