@@ -1,0 +1,120 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务！
+    </div>
+    <div class="answer">
+        <p>💡好吧，我给你提供的清晰而循序渐进地解决这个任务的思路如下。</p>
+        <p>
+            首先，你必须为距离和你未来最接近的数字声明变量。然后，通过检查集合中的每个数字，你应该计算出该数字与输入数字之间的距离。
+        </p>
+        <p>
+            如果这个距离小于变量中存储的距离，则用新的距离和最近的数字更新变量。如果距离相同，则检查数字是否小于存储的数字。如果是，则更新存储的数字。
+        </p>
+        <p>
+            以这种方式检查完所有集合后，返回存储的数字。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        
+            这看起来很清楚，但我的代码仍然不起作用。我应该使用哪些函数将这一想法落实到代码中？
+        
+    </div>
+    <div class="answer">
+        <p>
+            要按我的方法成功完成任务，你只需要用<a target="_blank" href="https://docs.python.org/3/library/functions.html#abs">abs()</a> 求距离，用<a target="_blank" href="https://docs.python.org/3/library/functions.html#min">min()</a> 选择较小的数字，用<a target="_blank" href="https://docs.python.org/3/reference/compound_stmts.html#for">for</a> 循环移动集合。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        您能给我指出一些确切的代码块吗？
+    </div>
+    <div class="answer">
+        <p>让我们看看更精确的代码描述：</p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+    
+    # declare the initial distance and closest number
+    min_dist, closest_num  = None, None 
+    # use for loop to iterate over the values
+    ...
+        # use abs() to calculate distance between current value from the set and the input one
+        dist = ...
+        # check if initial distance does not exist or is bigger then calculated
+        if min_dist == None or min_dist> dist: 
+            # update stored min_dist and closest_num with new values
+            ...
+        # if distance is the same as stored    
+        elif min_dist == dist:
+            # use min() to store the smaller number
+            closest_num = ... 
+
+    return closest_num
+        </pre>    
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        最后一个问题。我的最终解决方案是什么样的？
+    </div>
+    <div class="answer">
+        <p>就是这样：</p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    min_dist, closest_num  = None, None
+    for value in values:
+        dist = abs(one - value)
+        if min_dist == None or min_dist> dist:
+            min_dist, closest_num = dist, value
+        elif min_dist == dist:
+            closest_num = min(value, closest_num)
+        
+    return closest_num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        告诉我更多的解决方案！<br />
+        因为我想成为一个真正的 🥇 Python Ninnjaa！
+    </div>
+    <div class="answer">
+        <p>当然，抓住它</p>
+        <p>
+            更简短的解决方案，通过两个参数找到集合中的最小值：第一个参数是与输入数字的距离（绝对差值），第二个参数是相同距离的两个数字之间的较小值。
+        </p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    return min(values, key=lambda n: (abs(one - n), n))        
+        </pre>
+        <p>
+            在此方案中，您可以从<b class="code">one</b> 开始，增加或减少它，检查新值是否在集合中。
+        </p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    n = 0
+    while True:
+        if (one - n) in values:
+            return one - n
+        if (one + n) in values:
+            return one + n
+        n += 1
+        </pre>
+        <p><b>Click "Best solutions" an mission menu and see more interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解得更多了！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到你这么说！
+    </div>
+</div>
+</body>
