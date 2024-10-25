@@ -1,0 +1,120 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję!
+    </div>
+    <div class="answer">
+        <p>cóż, proponuję Panu następujący pomysł na jasne i stopniowe rozwiązanie tej misji.</p>
+        <p>
+            Po pierwsze, należy zadeklarować zmienne dla odległości i przyszłej najbliższej liczby, a następnie, sprawdzając każdą liczbę w zestawie, należy obliczyć odległość między liczbą a liczbą wejściową.
+        </p>
+        <p>
+            W przypadku, gdy odległość ta jest mniejsza niż przechowywana w zmiennej, należy zaktualizować zmienne o nową odległość i najbliższą liczbę. W przypadku, gdy odległość jest taka sama, proszę sprawdzić, czy liczba jest mniejsza od liczby zapisanej w zmiennej. Jeśli tak - proszę zaktualizować zapisaną liczbę.
+        </p>
+        <p>
+            Proszę zwrócić zapisaną liczbę po sprawdzeniu całego zestawu w ten sposób.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        
+            Wygląda to jasno, ale mój kod nadal nie działa. Jakich funkcji powinienem użyć, aby zaimplementować ten pomysł w kodzie?
+        
+    </div>
+    <div class="answer">
+        <p>
+            Aby pomyślnie rozwiązać zadanie na mój sposób, wystarczy znaleźć odległość za pomocą <a target="_blank" href="https://docs.python.org/3/library/functions.html#abs">abs()</a>, wybrać mniejszą liczbę za pomocą <a target="_blank" href="https://docs.python.org/3/library/functions.html#min">min()</a> i poruszać się po zbiorze za pomocą pętli <a target="_blank" href="https://docs.python.org/3/reference/compound_stmts.html#for">for</a>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Czy może mi Pan wskazać jakieś dokładne bloki kodu?
+    </div>
+    <div class="answer">
+        <p>Proszę spojrzeć na dokładniejszy opis kodu:</p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+    
+    # declare the initial distance and closest number
+    min_dist, closest_num  = None, None 
+    # use for loop to iterate over the values
+    ...
+        # use abs() to calculate distance between current value from the set and the input one
+        dist = ...
+        # check if initial distance does not exist or is bigger then calculated
+        if min_dist == None or min_dist> dist: 
+            # update stored min_dist and closest_num with new values
+            ...
+        # if distance is the same as stored    
+        elif min_dist == dist:
+            # use min() to store the smaller number
+            closest_num = ... 
+
+    return closest_num
+        </pre>    
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ostatnie pytanie. Jak będzie wyglądało moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>Proszę bardzo:</p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    min_dist, closest_num  = None, None
+    for value in values:
+        dist = abs(one - value)
+        if min_dist == None or min_dist> dist:
+            min_dist, closest_num = dist, value
+        elif min_dist == dist:
+            closest_num = min(value, closest_num)
+        
+    return closest_num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            Znacznie krótsze rozwiązanie, w którym można znaleźć minimalną wartość w zbiorze za pomocą dwóch parametrów: pierwszy to odległość (różnica bezwzględna) od liczby wejściowej, drugi: mniejsza wartość między dwiema liczbami w tej samej odległości
+        </p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    return min(values, key=lambda n: (abs(one - n), n))        
+        </pre>
+        <p>
+            W tym rozwiązaniu zaczynamy od <b class="code">one</b> i zwiększając i zmniejszając sprawdzamy, czy nowa wartość znajduje się w zbiorze.
+        </p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    n = 0
+    while True:
+        if (one - n) in values:
+            return one - n
+        if (one + n) in values:
+            return one + n
+        n += 1
+        </pre>
+        <p><b>Click "Best solutions" an mission menu and see more interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa dobrze!
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>
