@@ -1,43 +1,42 @@
 <!-- Describe task in general -->
 
 <p>
-    Znajdź wartość najbliższą do podanej liczby.
+    Proszę znaleźć wartość najbliższą podanej.
 </p>
-
 <p>
-    Dana jest lista wartości w formie {% if interpreter.slug == "js-node" %}tablicy (Array){% else %}zbioru (set){% endif %} oraz liczba, dla której należy znaleźć najbliższą wartość.
+    Otrzymuje Pan(i) {% if is_js %}zbiór liczb{% else %}zbiór liczb całkowitych{% endif %}
+    oraz wartość, dla której należy znaleźć najbliższą.
 </p>
-
 <p>
-    Weźmy przykładowy zbiór liczb: 4, 7, 10, 11, 12, 17, oraz liczbę 9, dla której należy znaleźć najbliższą wartość. Jeśli posortujemy zbiór rosnąco, wtedy po lewej stronie liczby 9 będzie 7, a po prawej - 10. Natomiast 10 jest bliżej niż 7 i dlatego poprawną odpowiedzią jest liczba 10.
+    Na przykład, mamy następujący ciąg liczb: 4, 7, 10, 11, 12, 17,
+    i musimy znaleźć wartość najbliższą liczbie 9. Jeśli posortujemy ten ciąg
+    w porządku rosnącym, to po lewej stronie liczby 9 będzie liczba 7, a po prawej - liczba 10
+    po prawej będzie liczba 10. Ale 10 jest bliżej niż 7, co oznacza, że poprawną odpowiedzią jest 10.
 </p>
 
-<p>Dla doprecyzowania:</p>
+<p>Kilka wyjaśnień:</p>
 <ul>
-    <li>Jeżeli dwie liczby są w takiej samej odległości, należy wybrać mniejszą z nich;</li>
-    <li>Zbiór liczb jest zawsze niepusty, tzn. jego wielkość >=1;</li>
-    <li>Zbiór może zawierać zadaną liczbę, co oznacza, że jest ona zarazem rozwiązaniem;</li>
-    <li>Zbiór może zawierać liczby dodatnie i ujemne, lecz zawsze są to liczby całkowite;</li>
-    <li>Zbiór nie jest posortowany, a liczby się nie powtarzają.</li>
+    <li>Jeśli 2 liczby znajdują się w tej samej odległości, należy wybrać najmniejszą z nich;</li>
+    <li>Ciąg liczb jest zawsze niepusty;</li>
+    <li>Podana wartość może znajdować się w tym ciągu, co oznacza, że jest to odpowiedź;</li>
+    <li>Ciąg może zawierać zarówno liczby dodatnie, jak i ujemne, ale zawsze są to liczby całkowite;</li>
+    <li>Ciąg nie jest posortowany i składa się tylko z unikalnych liczb.</li>
 </ul>
-
-
-
 <!-- Explain input and output values -->
 <p>
-    <strong>Wejście: </strong> Dwa argumenty. Set zawierający liczby oraz wartość szukana typu int.
+   <strong>Wejście:</strong> Dwa argumenty. {% if is_js %}Zbiór liczb{% else %}Zbiór liczb całkowitych{% endif %}. Poszukiwana wartość jako {% if is_js %}liczba{% else %}liczba całkowita{% endif %}.
 </p>
 
 <p>
-    <strong>Wyjście: </strong> Int. 
+   <strong>Wyjście:</strong> {% if is_js %}Liczba{% else %}Liczba całkowita{% endif %}. 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Przykład:</strong>
+        <strong>Przykłady:</strong>
     </p>
 
-    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
