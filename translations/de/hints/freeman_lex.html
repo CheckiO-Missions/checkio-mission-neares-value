@@ -1,0 +1,120 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll!
+    </div>
+    <div class="answer">
+        <p>💡 Nun, die Idee, die ich Ihnen für die klare und schrittweise Lösung dieser Mission vorschlage, ist die folgende.</p>
+        <p>
+            Zunächst müssen Sie die Variablen für die Entfernung und die nächstgelegene Zahl deklarieren und dann, indem Sie jede Zahl in der Menge überprüfen, die Entfernung zwischen der Zahl und der eingegebenen Zahl berechnen.
+        </p>
+        <p>
+            Ist der Abstand kleiner als der in der Variablen gespeicherte, aktualisieren Sie die Variablen mit dem neuen Abstand und der nächstgelegenen Zahl. Wenn der Abstand gleich ist, prüfen Sie, ob die Zahl kleiner ist als die gespeicherte Zahl. Wenn ja - aktualisieren Sie die gespeicherte Zahl.
+        </p>
+        <p>
+            Geben Sie die gespeicherte Zahl zurück, nachdem Sie die gesamte Menge auf diese Weise überprüft haben.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        
+            Es sieht klar aus, aber mein Code funktioniert trotzdem nicht. Welche Funktionen sollte ich verwenden, um die Idee in Code umzusetzen?
+        
+    </div>
+    <div class="answer">
+        <p>
+            Um die Aufgabe auf meine Weise erfolgreich zu lösen, müssen Sie nur den Abstand mit <a target="_blank" href="https://docs.python.org/3/library/functions.html#abs">abs()</a> ermitteln, die kleinere Zahl mit <a target="_blank" href="https://docs.python.org/3/library/functions.html#min">min()</a> auswählen und die Schleife <a target="_blank" href="https://docs.python.org/3/reference/compound_stmts.html#for">for</a> verwenden, um sich über die Menge zu bewegen.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Können Sie mir bitte einige genaue Codeblöcke zeigen?
+    </div>
+    <div class="answer">
+        <p>Schauen wir uns eine genauere Beschreibung des Codes an:</p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+    
+    # declare the initial distance and closest number
+    min_dist, closest_num  = None, None 
+    # use for loop to iterate over the values
+    ...
+        # use abs() to calculate distance between current value from the set and the input one
+        dist = ...
+        # check if initial distance does not exist or is bigger then calculated
+        if min_dist == None or min_dist> dist: 
+            # update stored min_dist and closest_num with new values
+            ...
+        # if distance is the same as stored    
+        elif min_dist == dist:
+            # use min() to store the smaller number
+            closest_num = ... 
+
+    return closest_num
+        </pre>    
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Eine letzte Frage. Wie wird meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>Hier ist sie:</p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    min_dist, closest_num  = None, None
+    for value in values:
+        dist = abs(one - value)
+        if min_dist == None or min_dist> dist:
+            min_dist, closest_num = dist, value
+        elif min_dist == dist:
+            closest_num = min(value, closest_num)
+        
+    return closest_num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich will ein echter 🥇 Python Ninnjaa sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnapp sie dir!</p>
+        <p>
+            Viel kürzere Lösung, bei der Sie den Mindestwert in der Menge durch zwei Parameter finden: erstens den Abstand (absolute Differenz) von der eingegebenen Zahl, zweitens den kleineren Wert zwischen zwei auf dem gleichen Abstand
+        </p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    return min(values, key=lambda n: (abs(one - n), n))        
+        </pre>
+        <p>
+            Bei dieser Lösung gehen Sie von <b class="code">one</b> aus und prüfen durch Erhöhen und Verringern, ob der neue Wert in der Menge enthalten ist.
+        </p>
+        <pre class="brush: python">
+def nearest_value(values: set[int], one: int) -> int:
+
+    n = 0
+    while True:
+        if (one - n) in values:
+            return one - n
+        if (one + n) in values:
+            return one + n
+        n += 1
+        </pre>
+        <p><b>Click "Best solutions" an mission menu and see more interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!
+    </div>
+    <div class="answer">
+        👍 Freut mich zu hören!
+    </div>
+</div>
+</body>
