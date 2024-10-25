@@ -1,0 +1,42 @@
+<!-- Describe task in general -->
+
+<p>
+    Finden Sie den Wert, der dem angegebenen Wert am nächsten kommt.
+</p>
+<p>
+    Sie erhalten eine {% if is_js %}Menge von Zahlen{% else %}Menge von ganzen Zahlen{% endif %}
+    und einen Wert, für den Sie den nächstliegenden Wert finden müssen.
+</p>
+<p>
+    Wir haben zum Beispiel die folgende Zahlenfolge: 4, 7, 10, 11, 12, 17,
+    und wir müssen den Wert finden, der der Zahl 9 am nächsten liegt. Wenn wir diese Folge sortieren
+    aufsteigend sortieren, dann wird links von der Zahl 9 die Zahl 7 und rechts davon die Zahl 10 stehen
+    rechts - die Zahl 10. Aber 10 liegt näher als 7, was bedeutet, dass die richtige Antwort 10 ist.
+</p>
+
+<p>Ein paar Klarstellungen:</p>
+<ul>
+    <li>Wenn 2 Zahlen den gleichen Abstand haben, müssen Sie die kleinste Zahl wählen;</li>
+    <li>Die Zahlenfolge ist immer nicht leer;</li>
+    <li>Der angegebene Wert kann in dieser Folge enthalten sein, was bedeutet, dass er die Antwort ist;</li>
+    <li>Die Folge kann sowohl positive als auch negative Zahlen enthalten, aber es handelt sich immer um ganze Zahlen;</li>
+    <li>Die Folge ist nicht sortiert und besteht nur aus eindeutigen Zahlen.</li>
+</ul>
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Zwei Argumente. {% if is_js %}Eine Menge von Zahlen{% else %}Eine Menge von ganzen Zahlen{% endif %}. Der gesuchte Wert als {% if is_js %}eine Zahl{% else %}eine ganze Zahl{% endif %}.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> {% if is_js %}Eine Zahl{% else %}eine ganze Zahl{% endif %}. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
